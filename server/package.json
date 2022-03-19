@@ -1,0 +1,39 @@
+{
+  "name": "flight-spotter-server",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Jan Hartmann",
+    "email": "kontakt@janhartmann.dk",
+    "url": "https://janhartmann.dk"
+  },
+  "homepage": "https://github.com/janhartmann/flight-spotter",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "start": "cross-env NODE_ENV=development npm-run-all build server:dev",
+    "start:prod": "cross-env NODE_ENV=production ts-node src/index.ts",
+    "server:dev": "nodemon -e ts,graphql -x ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@turf/turf": "^5.1.6",
+    "apollo-datasource-rest": "^0.4.0",
+    "apollo-server": "^2.5.0",
+    "dotenv": "^8.0.0",
+    "graphql": "^14.3.0",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/graphql": "^14.2.0",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.19.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.1",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.5"
+  }
+}

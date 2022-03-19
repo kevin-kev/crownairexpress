@@ -1,0 +1,119 @@
+query GetFlights($input: FlightsInput!) {
+  flights(input: $input) {
+    id
+    callsign
+    timePosition
+    coordinates(predict: true) {
+      longitude
+      latitude
+    }
+    direction
+    velocity
+  }
+}
+
+query GetFlightPopup($input: FlightInput!) {
+  flight(input: $input) {
+    id
+    callsign
+    coordinates(predict: true) {
+      longitude
+      latitude
+    }
+  }
+}
+
+query GetFlightTrajectory($input: FlightInput!) {
+  flight(input: $input) {
+    id
+    coordinates(predict: true) {
+      longitude
+      latitude
+    }
+    trajectory {
+      startTime
+      endTime
+      paths {
+        coordinates {
+          latitude
+          longitude
+        }
+      }
+    }
+    route {
+      departure {
+        id
+        coordinates {
+          longitude
+          latitude
+        }
+      }
+      arrival {
+        id
+        coordinates {
+          longitude
+          latitude
+        }
+      }
+    }
+  }
+}
+
+query GetFlightInformation($input: FlightInput!) {
+  flight(input: $input) {
+    id
+    callsign
+    originCountry
+    timePosition
+    lastContact
+    velocity
+    direction
+    verticalRate
+    squawk
+    positionSource
+    altitude {
+      barometric
+      geometric
+    }
+    coordinates(predict: true) {
+      longitude
+      latitude
+    }
+    trajectory {
+      startTime
+      endTime
+      paths {
+        time
+        direction
+        grounded
+        altitude {
+          barometric
+        }
+        coordinates {
+          latitude
+          longitude
+        }
+      }
+    }
+    route {
+      departure {
+        id
+        iata
+        name
+        coordinates {
+          longitude
+          latitude
+        }
+      }
+      arrival {
+        id
+        iata
+        name
+        coordinates {
+          longitude
+          latitude
+        }
+      }
+    }
+  }
+}
