@@ -8,6 +8,9 @@
     "email": "kontakt@janhartmann.dk",
     "url": "https://janhartmann.dk"
   },
+  "engines": {
+    "node": "12.22.9"
+  }
   "homepage": "https://github.com/janhartmann/flight-spotter",
   "main": "./src/index.tsx",
   "scripts": {
